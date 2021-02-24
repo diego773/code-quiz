@@ -12,9 +12,12 @@ function startQuiz() {
 
     timerId = setInterval(clockTick, 1000)
     timerEl.textContent = time;
-    //getQuestion(); 
+    var question = getQuestion("What is the closest planet to Jupiter?", "How much does basketball weight?", 
+    "Who was the first man on the moon?", "Who played Batman in the 1992 Batman Returns?",
+    "Who sang Ready or Not?"); 
 
 }
+
 
 function clockTick() {
     console.log(time);
