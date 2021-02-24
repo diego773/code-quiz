@@ -5,29 +5,14 @@ var timerId;
 var time = questions.length * 15
 var timerEl = document.getElementById("time");
 
+
 function startQuiz() {
     startScreenEl.setAttribute("class", "hide");
     questionsEl.removeAttribute("class");
 
     timerId = setInterval(clockTick, 1000)
     timerEl.textContent = time;
-
     //getQuestion(); 
-    for(var i=0; i < questions.length; i++)
-        var response =(questions [i])
-        if(response == questions[i].answer) {
-            score++;
-            alert("Correct!");
-        }else {
-            alert("WRONG!");
-        }
-        
-        
-    
-
-        
-    
-
 
 }
 
@@ -36,13 +21,10 @@ function clockTick() {
     time--;
     timerEl.textContent = time;
     if (time <= 0 ) {
-    
-    quizEnd();
-    if(quiz)
-
+        //quizEnd()
     }
 
 
 }
 
-startButton.onclick = startQuiz
+startButton.onclick = startQuiz;
