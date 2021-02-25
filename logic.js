@@ -5,18 +5,16 @@ var timerId;
 var time = questions.length * 15
 var timerEl = document.getElementById("time");
 
-
-
 function startQuiz() {
     startScreenEl.setAttribute("class", "hide");
     questionsEl.removeAttribute("class");
 
     timerId = setInterval(clockTick, 1000)
     timerEl.textContent = time;
-    
-    //getQuestions();
-}
 
+    questions.appendChild("What is the closest planet to Jupiter?");
+
+}
 
 function clockTick() {
     time--;
@@ -29,3 +27,35 @@ function clockTick() {
 }
 
 startButton.onclick = startQuiz;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,7 +24,5 @@ var questions = [
         choices: ["Oliver Stone", "The Fugees", "Queen", "Tim Burton"],
         answer: "The Fugees", 
     },
-   
 
-  
 ]
