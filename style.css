@@ -1,28 +1,73 @@
+/* Display hide */
 .hide {
   display: none;
 }
 
+/* View score */
 h1 {
   text-align: left;
-  color: black;
+  color: rgb(168, 63, 168);
   border: 20px;
+  font-size: 20px;
 }
 
+/* Timer */
 #time {
   text-align: right;
   color: black;
-  font-size: 40px;
+  font-size: 20px;
   float: right;
+  padding-left: 40px;
+  padding: auto;
+  position: absolute;
+  top: 8px;
+  right: 16px;
 }
 
+/* Random questions align center */
 h2 {
   text-align: center;
 }
 
+/* Paragraph align center */
 p {
   text-align: center;
 }
 
-#button {
+/* Changed the font size on the questions */
+#questions {
+  color: black;
+  font-size: 30px;
+}
+
+/* Question title */
+#question-title {
+  color: black;
+  font-size: 35px;
+}
+
+/* Start button */
+#start {
   display: block;
+  padding: 5px;
+  color: white;
+  background-color: rgb(168, 63, 168);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#end-screen {
+  display: inline-flexbox;
+  position: relative;
+}
+
+#submit {
+  display: block;
+  padding: 5px;
+  color: white;
+  background-color: rgb(168, 63, 168);
+  padding: 5px;
+  margin-left: auto;
+  margin-right: 375px;
+  margin-bottom: auto;
 }
