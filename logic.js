@@ -12,8 +12,6 @@ var choices = document.createElement("p");
 var answerId;   
 var answer = document.createElement("p");
 
-
-
 // startQuiz functions
 function startQuiz() {
     startScreenEl.setAttribute("class", "hide");
@@ -22,16 +20,31 @@ function startQuiz() {
     timerId = setInterval(clockTick, 1000)
     timerEl.textContent = time;
 
-// Append questions
-    questionsEl.appendChild(question);
+    // gets one question from questions.js
+    var questionEach = questions[0];
     
-    choicesEl.appendChild(choices)
+    // update question title on html
+    var titleElement = document.getElementById
+    ("question-title");
+    titleElement.textContent = questionEach.title;
+    console.log(titleElement);
 
-// Loops questions    
-    for ( i = 0; i < questions.length; i++);
+    // clear old choices
+    choicesEl.innerHTML = "";
 
+    // getting choices
+    for (i = 0; i < questionEach.choices.length; i++) {
+        // create button
+        var buttonChoice = document.createElement("button");
+        // set button value
+        buttonChoice.setAttribute("value", questionEach.choices[i]);
+        buttonChoice.textContent = i + 1 + ". " + questionEach.choices[i];
 
+        choicesEl.appendChild(buttonChoice);
 }
+}
+
+
 
 // Adds buttons to the questions    
     // questionsEl.addEventListener("click", question);
@@ -51,6 +64,8 @@ function clockTick() {
 
 
 }
+
+
 
 startButton.onclick = startQuiz;
 
