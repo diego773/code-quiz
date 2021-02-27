@@ -37,8 +37,11 @@ function startQuiz() {
         // create button
         var buttonChoice = document.createElement("button");
         // set button value
-        buttonChoice.setAttribute("value", questionEach.choices[i]);
-        buttonChoice.textContent = i + 1 + ". " + questionEach.choices[i];
+        buttonChoice.setAttribute("value", questionEach.
+        choices[i]);
+        
+        buttonChoice.textContent = i + 1 + ". " + 
+        questionEach.choices[i];
 
         choicesEl.appendChild(buttonChoice);
 }

@@ -1,5 +1,4 @@
-/* Display hide */
-.hide {
+Display hide .hide {
   display: none;
 }
 
@@ -44,6 +43,13 @@ p {
 #question-title {
   color: black;
   font-size: 35px;
+}
+
+#choices {
+  display: block;
+  padding: 5px;
+  text-align: center;
+  color: rgb(19, 15, 15);
 }
 
 /* Start button */
