@@ -12,6 +12,9 @@ var choices = document.createElement("p");
 var answerId;   
 var answer = document.createElement("p");
 var button = document.createElement("button");
+var titleElement = document.createElement("p")
+var buttonChoice = document.createElement("p")
+
 
 // startQuiz functions
 function startQuiz() {
@@ -62,11 +65,12 @@ function startQuiz() {
 function nextQuestion() {
     var questionsEl = questions[0];
 
-    tittleElement.textContent = questionsEl.tittle;
-        console.log(tittleElement);
+    var titleElement = questionsEl.tittle;
+        console.log(titleElement);
 
     choicesEl.innerHTML = "";
 
+    // getting choices
     for (i = 0; i < questionsEl.choices.length; i++) {
         buttonChoice.textContent = i + 1 +". " + 
         questionsEl.choices[i] + "<br>";
