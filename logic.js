@@ -45,47 +45,9 @@ function startQuiz() {
 
         choicesEl.appendChild(buttonChoice);
 
-        if (questionEach == choicesEl) {
-            alert("Correct!")
-        } else {
-            alert("Wrong!");
-            }
-
     }
 }
-function questionsEl() {
-    startScreenEl.setAttribute("class", "hide");
-    questionsEl.removeAttribute("class");
-    
-    timerId = setInterval(clockTick, 1000)
-    timerEl.textContent = time;
 
-    // gets one question from questions.js
-    var questionEach = questions[1];
-
-    // update question title on html
-    var titleElement = document.getElementById
-    ("question-title");
-    titleElement.textContent = questionEach.title;
-    console.log(titleElement);
-
-    // clear old choices
-    choicesEl.innerHTML = "";
-
-    // getting choices
-    for (i = 0; i < questionEach.choices.length; i++) {
-        // create button
-        var buttonChoice = document.createElement("button");
-        // set button value
-        buttonChoice.setAttribute("value", questionEach.
-        choices[i]);
-        
-        buttonChoice.textContent = i + 1 + ". " + 
-        questionEach.choices[i];
-
-        choicesEl.appendChild(buttonChoice);
-    }
-}
 
 
 
