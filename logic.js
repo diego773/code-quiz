@@ -11,6 +11,7 @@ var choicesEl = document.getElementById("choices");
 var choices = document.createElement("p");
 var answerId;   
 var answer = document.createElement("p");
+var button = document.createElement("button");
 
 // startQuiz functions
 function startQuiz() {
@@ -39,13 +40,48 @@ function startQuiz() {
         // set button value
         buttonChoice.setAttribute("value", questionEach.
         choices[i]);
-        
+
         buttonChoice.textContent = i + 1 + ". " + 
         questionEach.choices[i];
 
         choicesEl.appendChild(buttonChoice);
+    };
 
+    buttonChoice.addEventListener("click", choices);
+
+    if (choicesEl == answerId) {
+        console.log("Correct!");
+        nextQuestion();
+    } else {
+        console.log("Wrong!");
+        nextQuestion();
     }
+}
+
+// gets the next question from questions.js
+function nextQuestion() {
+    var questionsEl = questions[0];
+
+    tittleElement.textContent = questionsEl.tittle;
+        console.log(tittleElement);
+
+    choicesEl.innerHTML = "";
+
+    for (i = 0; i < questionsEl.choices.length; i++) {
+        buttonChoice.textContent = i + 1 +". " + 
+        questionsEl.choices[i] + "<br>";
+
+        choicesEl.appendChild(buttonChoice);
+    }
+
+    if (choicesEl == answerId) {
+        console.log("Correct!");
+        nextQuestion();
+    } else {
+        console.log("Wrong!");
+        nextQuestion();
+    }
+
 }
 
 

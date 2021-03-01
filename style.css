@@ -1,6 +1,6 @@
-Display hide .hide {
+/* Display hide .hide {
   display: none;
-}
+} */
 
 /* View score */
 h1 {
@@ -49,7 +49,7 @@ p {
   display: block;
   padding: 5px;
   text-align: center;
-  color: rgb(19, 15, 15);
+  color: white;
 }
 
 /* Start button */
@@ -74,6 +74,6 @@ p {
   background-color: rgb(168, 63, 168);
   padding: 5px;
   margin-left: auto;
-  margin-right: 375px;
+  margin-right: 415px;
   margin-bottom: auto;
 }
