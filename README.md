@@ -8,4 +8,5 @@
 
 # code-quiz
 Web APIs: Code Quiz
+Allows users to answer random questions
 https://diego773.github.io/code-quiz/
