@@ -17,13 +17,13 @@ var buttonChoice = document.createElement("p")
 var nextQuestion = document.createElement("p")
 var userInitials = document.getElementById("initials");
 var getScores = document.getElementById("final-score");
-
 var currQuestionIndex = 0;
 
+// Finish quiz function
 function finishQuiz() {
     let score = timerEl.textContent;
 }
-
+// Wrong answer function
 function wrongAnswer() {
     console.log("Wrong!");
 }
@@ -60,6 +60,7 @@ function startQuiz() {
         buttonChoice.textContent = i + 1 + ". " + 
         questionEach.choices[i];
 
+    //store wrong answer
         if (questionEach.choices[i] == questionEach.answer) {
             buttonChoice.onclick = loadNextQuestion;
         }else {
@@ -69,8 +70,6 @@ function startQuiz() {
         choicesEl.appendChild(buttonChoice);
     }
 }
-
-
 
 // gets the next question from questions.js
 function loadNextQuestion() {
@@ -97,7 +96,8 @@ function loadNextQuestion() {
         
         buttonChoice.textContent = i + 1 + ". " + 
         questionsEl.choices[i];
-
+        
+    // Load next questions and store wrong answer
         if (questionsEl.choices[i] == questionsEl.answer) {
             if (currQuestionIndex >= questions.length-1) {
                 buttonChoice.onclick = finishQuiz;
@@ -118,8 +118,6 @@ function loadNextQuestion() {
     // get the value of the click and check it against the value and console log
 
 }
-
-
 // Timer clock
 function clockTick() {
     time--;
@@ -132,16 +130,20 @@ function clockTick() {
 
 
 }
-        
-        
-        
-
-
-
-
-
 
 startButton.onclick = startQuiz;
+
+        
+        
+        
+
+
+
+
+
+
+
+
     
 
 
