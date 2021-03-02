@@ -23,7 +23,13 @@ var getScores = document.getElementById("final-score");
 function startQuiz() {
     startScreenEl.setAttribute("class", "hide");
     questionsEl.removeAttribute("class");
-    
+
+// finish quiz
+function finishQuiz(){
+    console.log(timerEl.textContent);
+}
+
+    // timer    
     timerId = setInterval(clockTick, 1000)
     timerEl.textContent = time;
 
@@ -54,22 +60,15 @@ function startQuiz() {
         choicesEl.appendChild(buttonChoice);
     }
 
-}
-    // buttonChoice.addEventListener("click", choices);
 
-    // if (choicesEl == answerId) {
-    //     console.log("Correct!");
-    //     nextQuestion();
-    // } else {
-    //     console.log("Wrong!");
-    //     nextQuestion();
-    // }
+}
+
 
 // gets the next question from questions.js
 function nextQuestion() {
     var questionsEl = questions[0];
 
-    var titleElement = questionsEl.tittle;
+    var titleElement = questionsEl.title;
         console.log(titleElement);
 
     choicesEl.innerHTML = "";
@@ -82,25 +81,10 @@ function nextQuestion() {
         choicesEl.appendChild(buttonChoice);
     }
 
-    if (choicesEl == answerId) {
-        console.log("Correct!");
-        nextQuestion();
-    } else {
-        console.log("Wrong!");
-        nextQuestion();
-    }
 
     // get the value of the click and check it against the value and console log
 
 }
-
-
-
-
-// Adds buttons to the questions    
-    // questionsEl.addEventListener("click", question);
-
-
 
 
 // Timer clock
@@ -119,6 +103,12 @@ function clockTick() {
 
 
 startButton.onclick = startQuiz;
+
+
+
+
+
+
 
 
 
