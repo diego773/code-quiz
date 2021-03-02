@@ -18,23 +18,27 @@ var nextQuestion = document.createElement("p")
 var userInitials = document.getElementById("initials");
 var getScores = document.getElementById("final-score");
 
+var currQuestionIndex = 0;
+
+function finishQuiz() {
+    let score = timerEl.textContent;
+}
+
+function wrongAnswer() {
+    console.log("Wrong!");
+}
 
 // startQuiz functions
 function startQuiz() {
     startScreenEl.setAttribute("class", "hide");
     questionsEl.removeAttribute("class");
 
-// finish quiz
-function finishQuiz(){
-    console.log(timerEl.textContent);
-}
-
     // timer    
     timerId = setInterval(clockTick, 1000)
     timerEl.textContent = time;
 
     // gets one question from questions.js
-    var questionEach = questions[0];
+    var questionEach = questions[currQuestionIndex];
 
     // update question title on html
     var titleElement = document.getElementById
@@ -55,32 +59,61 @@ function finishQuiz(){
 
         buttonChoice.textContent = i + 1 + ". " + 
         questionEach.choices[i];
-        buttonChoice.onclick =  //nextQuestion;
+
+        if (questionEach.choices[i] == questionEach.answer) {
+            buttonChoice.onclick = loadNextQuestion;
+        }else {
+            buttonChoice.onclick = wrongAnswer;
+        }
 
         choicesEl.appendChild(buttonChoice);
     }
-
-
 }
 
 
-// gets the next question from questions.js
-function nextQuestion() {
-    var questionsEl = questions[0];
 
-    var titleElement = questionsEl.title;
-        console.log(titleElement);
+// gets the next question from questions.js
+function loadNextQuestion() {
+    currQuestionIndex = currQuestionIndex + 1
+
+    if (currQuestionIndex >= questions.length) {
+        timerEl.value;
+    }
+
+    var questionsEl = questions[currQuestionIndex];
+
+    var titleElement = document.getElementById
+    ("question-title");
+    titleElement.textContent =(questionsEl.title);
 
     choicesEl.innerHTML = "";
 
     // getting choices
     for (i = 0; i < questionsEl.choices.length; i++) {
-        buttonChoice.textContent = i + 1 +". " + 
-        questionsEl.choices[i] + "<br>";
+        let buttonChoice = document.createElement("button")
+        // set button value
+        buttonChoice.setAttribute("value", questionsEl.
+        choices[i]);
+        
+        buttonChoice.textContent = i + 1 + ". " + 
+        questionsEl.choices[i];
+
+        if (questionsEl.choices[i] == questionsEl.answer) {
+            if (currQuestionIndex >= questions.length-1) {
+                buttonChoice.onclick = finishQuiz;
+            }else {
+                buttonChoice.onclick = loadNextQuestion;
+            }
+        }else {
+            buttonChoice.onclick = wrongAnswer;
+        }  
 
         choicesEl.appendChild(buttonChoice);
+        
     }
 
+    // buttonChoice.textContent = i + 1 +". " + 
+    // questionsEl.choices[i] + "<br>";
 
     // get the value of the click and check it against the value and console log
 
@@ -99,10 +132,22 @@ function clockTick() {
 
 
 }
+        
+        
+        
+
+
+
 
 
 
 startButton.onclick = startQuiz;
+    
+
+
+
+
+
 
 
 
