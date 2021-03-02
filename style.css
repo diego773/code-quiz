@@ -1,6 +1,6 @@
-/* Display hide .hide {
+Display hide .hide {
   display: none;
-} */
+}
 
 /* View score */
 h1 {
@@ -45,11 +45,13 @@ p {
   font-size: 35px;
 }
 
+/* choices display */
 #choices {
   display: block;
   padding: 5px;
   text-align: center;
   color: white;
+  font-size: 35px;
 }
 
 /* Start button */
@@ -62,11 +64,13 @@ p {
   margin-right: auto;
 }
 
+/* end screen display */
 #end-screen {
   display: inline-flexbox;
   position: relative;
 }
 
+/* submit button */
 #submit {
   display: block;
   padding: 5px;

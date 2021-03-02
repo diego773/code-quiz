@@ -14,6 +14,9 @@ var answer = document.createElement("p");
 var button = document.createElement("button");
 var titleElement = document.createElement("p")
 var buttonChoice = document.createElement("p")
+var nextQuestion = document.createElement("p")
+var userInitials = document.getElementById("initials");
+var getScores = document.getElementById("final-score");
 
 
 // startQuiz functions
@@ -46,20 +49,21 @@ function startQuiz() {
 
         buttonChoice.textContent = i + 1 + ". " + 
         questionEach.choices[i];
+        buttonChoice.onclick =  //nextQuestion;
 
         choicesEl.appendChild(buttonChoice);
-    };
-
-    buttonChoice.addEventListener("click", choices);
-
-    if (choicesEl == answerId) {
-        console.log("Correct!");
-        nextQuestion();
-    } else {
-        console.log("Wrong!");
-        nextQuestion();
     }
+
 }
+    // buttonChoice.addEventListener("click", choices);
+
+    // if (choicesEl == answerId) {
+    //     console.log("Correct!");
+    //     nextQuestion();
+    // } else {
+    //     console.log("Wrong!");
+    //     nextQuestion();
+    // }
 
 // gets the next question from questions.js
 function nextQuestion() {
@@ -85,6 +89,8 @@ function nextQuestion() {
         console.log("Wrong!");
         nextQuestion();
     }
+
+    // get the value of the click and check it against the value and console log
 
 }
 
