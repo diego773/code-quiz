@@ -1,122 +1,136 @@
-var startButton = document.getElementById("start");
+// Variables to track quiz
+var currentQuestionIndex = 0;
+var timerId;
+var time = questions.length * 10;
+
+// Dom variables
+var timeEl = document.getElementById("timer");
+var startButton = document.getElementById("start-button");
 var startScreenEl = document.getElementById("start-screen");
 var questionsEl = document.getElementById("questions");
-var timerId;
-var time = questions.length * 15;
-var timerEl = document.getElementById("time");
-var question = document.createElement("p");
-question.innerText = "";
-var choicesId;
+var questionTitleEl = document.getElementById("question-title");
 var choicesEl = document.getElementById("choices");
-var choices = document.createElement("p");
-var answerId;
-var answer = document.createElement("p");
-var button = document.createElement("button");
-var titleElement = document.createElement("p");
-var buttonChoice = document.createElement("p");
-var nextQuestion = document.createElement("p");
-var userInitials = document.getElementById("initials");
-var getScores = document.getElementById("final-score");
-var currQuestionIndex = 0;
+var feedbackEl = document.getElementById("feedback");
+var endQuestionEl = document.getElementById("end-question");
 
-// Finish quiz function
-function finishQuiz() {
-  let score = timerEl.textContent;
-}
-// Wrong answer function
-function wrongAnswer() {
-  console.log("Wrong!");
-}
-
-// startQuiz functions
+// Start quiz
 function startQuiz() {
+  // Hide start screen
   startScreenEl.setAttribute("class", "hide");
+
+  // Display questions
   questionsEl.removeAttribute("class");
 
-  // timer
-  timerId = setInterval(clockTick, 1000);
-  timerEl.textContent = time;
+  // Start timer
+  timerId = setInterval(startTimer, 1000);
 
-  // gets one question from questions.js
-  var questionEach = questions[currQuestionIndex];
+  // Display starting time
+  timeEl.textContent = time;
 
-  // update question title on html
-  var titleElement = document.getElementById("question-title");
-  titleElement.textContent = questionEach.title;
-  console.log(titleElement);
+  // Display first question
+  showQuestion();
+}
 
-  // clear old choices
+// Show questions
+function showQuestion() {
+  // Get current question object from array
+  var currentQuestion = questions[currentQuestionIndex];
+
+  // Display current question
+  questionTitleEl.textContent = currentQuestion.question;
+
+  // clear choices
   choicesEl.innerHTML = "";
 
-  // getting choices
-  for (i = 0; i < questionEach.choices.length; i++) {
-    // create button
-    var buttonChoice = document.createElement("button");
-    // set button value
-    buttonChoice.setAttribute("value", questionEach.choices[i]);
+  // Show choices for current question and add event listeners to each choice button to check answer when clicked on button
+  for (var i = 0; i < currentQuestion.choices.length; i++) {
+    // Created a variable to store the current choice
+    var choice = currentQuestion.choices[i];
 
-    buttonChoice.textContent = i + 1 + ". " + questionEach.choices[i];
+    // Create a button for each choice
+    var choiceBtn = document.createElement("button");
 
-    //store wrong answer
-    if (questionEach.choices[i] == questionEach.answer) {
-      buttonChoice.onclick = loadNextQuestion;
-    } else {
-      buttonChoice.onclick = wrongAnswer;
-    }
+    // Add class to button
+    choiceBtn.setAttribute("class", "choice");
 
-    choicesEl.appendChild(buttonChoice);
+    // Add value to button
+    choiceBtn.setAttribute("value", choice);
+
+    // Append child button to parent element
+    choicesEl.appendChild(choiceBtn);
+
+    // Add text to button
+    choiceBtn.textContent = i + 1 + "." + choice;
+
+    // Check answer when choice button is clicked
+    choiceBtn.addEventListener("click", checkAnswer);
   }
 }
 
-// gets the next question from questions.js
-function loadNextQuestion() {
-  currQuestionIndex = currQuestionIndex + 1;
+// Check answer
+function checkAnswer() {
+  // Get value of selected button choice and store in variable
+  var userAnswer = this.value;
 
-  if (currQuestionIndex >= questions.length) {
-    timerEl.value;
-  }
+  // Get current question object from array and store in variable to compare user answer to correct answer
+  var correctAnswer = questions[currentQuestionIndex].answer;
 
-  var questionsEl = questions[currQuestionIndex];
+  // Check if user answer is correct and display feedback
+  if (userAnswer !== correctAnswer) {
+    // Decrease time by 10 seconds if wrong
+    time -= 10;
 
-  var titleElement = document.getElementById("question-title");
-  titleElement.textContent = questionsEl.title;
-
-  choicesEl.innerHTML = "";
-
-  // getting choices
-  for (i = 0; i < questionsEl.choices.length; i++) {
-    let buttonChoice = document.createElement("button");
-    // set button value
-    buttonChoice.setAttribute("value", questionsEl.choices[i]);
-
-    buttonChoice.textContent = i + 1 + ". " + questionsEl.choices[i];
-
-    // Load next questions and store wrong answer
-    if (questionsEl.choices[i] == questionsEl.answer) {
-      if (currQuestionIndex >= questions.length - 1) {
-        buttonChoice.onclick = finishQuiz;
-      } else {
-        buttonChoice.onclick = loadNextQuestion;
-      }
-    } else {
-      buttonChoice.onclick = wrongAnswer;
+    if (time < 0) {
+      time = 0;
     }
+    // Display new time
+    timeEl.textContent = time;
 
-    choicesEl.appendChild(buttonChoice);
+    // Display feedback
+    feedbackEl.textContent = "Wrong!";
+  } else {
+    feedbackEl.textContent = "Correct!";
   }
 
-  // buttonChoice.textContent = i + 1 +". " +
-  // questionsEl.choices[i] + "<br>";
+  // Show next question
+  currentQuestionIndex++;
 
-  // get the value of the click and check it against the value and console log
+  // Display Correct! or Wrong! message for a second
+  feedbackEl.setAttribute("class", "feedback");
+  setTimeout(function () {
+    feedbackEl.setAttribute("class", "hide");
+  }, 1000);
+
+  // End quiz if all questions have been answered
+  if (currentQuestionIndex === questions.length) {
+    endQuiz();
+  } else {
+    showQuestion();
+  }
 }
-// Timer clock
-function clockTick() {
+
+// End quiz
+function endQuiz() {
+  // Stop timer
+  clearInterval(timerId);
+
+  // Hide questions
+  questionsEl.setAttribute("class", "hide");
+
+  // Show end screen
+  endQuestionEl.removeAttribute("class");
+}
+
+// Start timer by decrementing time by 1 second
+function startTimer() {
   time--;
-  timerEl.textContent = time;
+  timeEl.textContent = time;
+
+  // End quiz if time runs out
   if (time <= 0) {
-    quizEnd();
+    endQuiz();
   }
 }
 
+// Start quiz by clicking start button
 startButton.onclick = startQuiz;
