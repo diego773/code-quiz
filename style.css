@@ -2,29 +2,65 @@
 /* display: none; */
 /* } */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100vw;
+  max-width: 100%;
+  min-height: 100vh;
+}
+
+.header {
+  margin: 0 1rem;
+}
+
 /* View score */
-h1 {
+.scores {
   text-align: left;
-  color: rgb(168, 63, 168);
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(116, 8, 116);
   border: 20px;
-  font-size: 20px;
+  right: 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.scores:hover {
+  color: rgb(112, 57, 112);
 }
 
 /* Timer */
-#time {
+.time {
   text-align: right;
   color: black;
-  font-size: 20px;
+  font-size: 1rem;
   float: right;
-  padding-left: 40px;
+  padding-left: 2rem;
   padding: auto;
   position: absolute;
-  top: 8px;
-  right: 16px;
+  top: 0.5rem;
+  right: 1rem;
+}
+
+.wrapper {
+  margin: 100px auto 0 auto;
+  width: 600px;
+  height: 100%;
 }
 
 /* Random questions align center */
 h2 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.start-screen {
   text-align: center;
 }
 
@@ -55,23 +91,29 @@ p {
 }
 
 /* Start button */
-#start {
+.start-button {
   display: block;
   padding: 5px;
   color: white;
+  border-radius: 5px;
   background-color: rgb(168, 63, 168);
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto 0 auto;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: rgb(112, 8, 112);
 }
 
 /* end screen display */
-#end-screen {
+/* #end-screen {
   display: inline-flexbox;
   position: relative;
-}
+} */
 
 /* submit button */
-#submit {
+.submit {
   display: block;
   padding: 5px;
   color: white;
@@ -80,4 +122,8 @@ p {
   margin-left: auto;
   margin-right: 415px;
   margin-bottom: auto;
+}
+
+.hide {
+  display: none;
 }
