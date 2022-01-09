@@ -1,127 +1,83 @@
-/* Display hide .hide { */
-/* display: none; */
-/* } */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,
 body {
-  width: 100vw;
-  max-width: 100%;
-  min-height: 100vh;
+  font-family: Arial;
 }
 
 .header {
-  margin: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 30px 5px 30px;
 }
 
-/* View score */
-.scores {
-  text-align: left;
-  font-size: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgb(116, 8, 116);
-  border: 20px;
-  right: 1rem;
-  margin-top: 0.5rem;
+.score a {
+  font-size: 1.2rem;
+  color: #563d7c;
   cursor: pointer;
 }
 
-.scores:hover {
-  color: rgb(112, 57, 112);
+.score a:hover {
+  color: #8570a5;
 }
 
-/* Timer */
-.time {
-  text-align: right;
-  color: black;
-  font-size: 1rem;
-  float: right;
-  padding-left: 2rem;
-  padding: auto;
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
+.timer {
+  font-size: 1.2rem;
+  color: #333;
 }
 
-.wrapper {
+.questions-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 100px auto 0 auto;
-  width: 600px;
-  height: 100%;
-}
-
-/* Random questions align center */
-h2 {
-  text-align: center;
-  font-size: 1.5rem;
+  max-width: 650px;
 }
 
 .start-screen {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Paragraph align center */
+h1 {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  margin: 8px;
+}
+
 p {
-  text-align: center;
-}
-
-/* Changed the font size on the questions */
-#questions {
-  color: black;
-  font-size: 30px;
-}
-
-/* Question title */
-#question-title {
-  color: black;
-  font-size: 35px;
-}
-
-/* choices display */
-#choices {
   display: block;
-  padding: 5px;
+  font-size: 1.26rem;
+  color: rgb(41, 39, 39);
   text-align: center;
-  color: white;
-  font-size: 35px;
+  margin: 10px;
+  padding-top: 6px;
+  padding-bottom: 8px;
 }
 
-/* Start button */
 .start-button {
-  display: block;
-  padding: 5px;
+  display: inline-block;
+  margin: 5px;
+  padding: 2px 5px;
+  background-color: #563d7c;
   color: white;
+  font-size: 1.2rem;
   border-radius: 5px;
-  background-color: rgb(168, 63, 168);
-  margin: 20px auto 0 auto;
-  font-size: 1.1rem;
   cursor: pointer;
 }
 
 .start-button:hover {
-  background-color: rgb(112, 8, 112);
-}
-
-/* end screen display */
-/* #end-screen {
-  display: inline-flexbox;
-  position: relative;
-} */
-
-/* submit button */
-.submit {
-  display: block;
-  padding: 5px;
-  color: white;
-  background-color: rgb(168, 63, 168);
-  padding: 5px;
-  margin-left: auto;
-  margin-right: 415px;
-  margin-bottom: auto;
+  background-color: #8570a5;
 }
 
 .hide {
