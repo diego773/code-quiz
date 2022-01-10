@@ -12,11 +12,11 @@
 <body>
   <header class="header">
     <div class="score">
-      <a>View Highscores</a>
+      <a href="./highscores.html">View Highscores</a>
     </div>
     <div class="timer">Time: <span id="timer">0</span></div>
   </header>
-  <main class="questions-container">
+  <main class="quiz-container">
     <section id="start-screen" class="start-screen">
       <h1>Coding Quiz Challenge</h1>
       <p>Try to answer the following code-related questions within the time
@@ -28,15 +28,15 @@
       <h2 id="question-title" class="question-title"></h2>
       <div id="choices" class="choices"></div>
     </section>
-    <div id="feedback" class="feedback"></div>
     <section id="end-question" class="hide">
-      <h2 id="end-score" class="final-score">All Done!</h2>
-      <p>You final score is: <span id="final-score">0</span></p>
+      <h2 id="end-score" class="final-score">All done!</h2>
+      <p>Your final score is: <span id="final-score">0</span>.</p>
       <form id="submit-form" class="submit-form">
-        <p>Enter your initials:<input type="text" name="name" id="initials"></p>
-        <button id="submit" class="Submit">Submit</button>
+        <p>Enter initials: <input type="text" name="name" id="initials"></p>
       </form>
+      <button id="submit" class="Submit">Submit</button>
     </section>
+    <section id="feedback" class="feedback hide"></section>
   </main>
   <script src="./assets/js/questions.js"></script>
   <script src="./assets/js/logic.js"></script>

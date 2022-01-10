@@ -1,7 +1,7 @@
 // Variables to track quiz
 var currentQuestionIndex = 0;
 var timerId;
-var time = questions.length * 10;
+var time = questions.length * 15;
 
 // Dom variables
 var timeEl = document.getElementById("timer");
@@ -12,6 +12,8 @@ var questionTitleEl = document.getElementById("question-title");
 var choicesEl = document.getElementById("choices");
 var feedbackEl = document.getElementById("feedback");
 var endQuestionEl = document.getElementById("end-question");
+var endScoreEl = document.getElementById("end-score");
+var finalScore = document.getElementById("final-score");
 
 // Start quiz
 function startQuiz() {
@@ -51,7 +53,7 @@ function showQuestion() {
     var choiceBtn = document.createElement("button");
 
     // Add class to button
-    choiceBtn.setAttribute("class", "choice");
+    choiceBtn.setAttribute("class", "choice-button");
 
     // Add value to button
     choiceBtn.setAttribute("value", choice);
@@ -92,14 +94,14 @@ function checkAnswer() {
     feedbackEl.textContent = "Correct!";
   }
 
-  // Show next question
-  currentQuestionIndex++;
-
   // Display Correct! or Wrong! message for a second
   feedbackEl.setAttribute("class", "feedback");
   setTimeout(function () {
     feedbackEl.setAttribute("class", "hide");
   }, 1000);
+
+  // Show next question
+  currentQuestionIndex++;
 
   // End quiz if all questions have been answered
   if (currentQuestionIndex === questions.length) {
@@ -119,10 +121,15 @@ function endQuiz() {
 
   // Show end screen
   endQuestionEl.removeAttribute("class");
+
+  // Display final score
+  endScoreEl.removeAttribute("class");
+  finalScore.textContent = time;
 }
 
 // Start timer by decrementing time by 1 second
 function startTimer() {
+  // Decrement time by 1 second and display new time
   time--;
   timeEl.textContent = time;
 
@@ -131,6 +138,9 @@ function startTimer() {
     endQuiz();
   }
 }
+
+// Save score
+function saveScore() {}
 
 // Start quiz by clicking start button
 startButton.onclick = startQuiz;
