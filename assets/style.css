@@ -94,11 +94,6 @@ h2 {
   font-size: 1.8rem;
 }
 
-/* Submit form */
-.submit-form {
-  display: inline-block;
-}
-
 input {
   margin: 5px;
   padding: 5px 10px;
@@ -115,4 +110,26 @@ input {
   margin-top: 10px;
   padding-top: 10px;
   border-top: 2px solid #ccc;
+}
+
+/* Score section */
+.scores-container {
+  margin: 100px auto 0 auto;
+  max-width: 600px;
+}
+
+ol {
+  max-height: 500px;
+  margin: 10px 0;
+  overflow: auto;
+}
+
+li {
+  padding: 5px;
+  list-style: decimal inside none;
+  font-size: 1.2rem;
+}
+
+li:nth-child(odd) {
+  background-color: #f3edfc;
 }
