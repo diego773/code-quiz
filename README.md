@@ -14,6 +14,8 @@ Web APIs: Code Quiz
 
 Allows users to answer random questions in a period of time. When the user answers a question incorrectly then time is subtracted from the clock.
 
+![Code Quiz Demo](./assets/video/code-quiz-demo.gif)
+
 ## Technologies:
 
 - HTML5
